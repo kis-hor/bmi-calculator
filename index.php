@@ -3,11 +3,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $weight = $_POST['weight'];
     $height = $_POST['height'];
 
-    if ($height > 0) {
-        $bmi = $weight / (((float)$height ** 2));
-        $bmi = round($bmi, 2);
+    if ($weight > 0 && $height > 0) {
+        $heightInMeters = $height / 100;
+        $bmi = round($weight / ($heightInMeters * $heightInMeters), 2);
     } else {
-        echo "<div class='container mt-5'><h2>Error: Height must be greater than zero.</h2></div>";
+        echo "<div class='container mt-5'><h2 class='text-danger'>Weight and height must be greater than zero.</h2></div>";
     }
 }
 ?>
@@ -44,17 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                 ?></h2>
             <?php if ($bmi < 18.5): ?>
-                <p class="text-warning">You are underweight.</p>
-
+                <div class="alert alert-warning">You are underweight.</div>
             <?php elseif ($bmi >= 18.5 && $bmi < 24.9): ?>
-                <p class="text-success">You have a normal weight.</p>
-
+                <div class="alert alert-success">You have a normal weight.</div>
             <?php elseif ($bmi >= 25 && $bmi < 29.9): ?>
-                <p class="text-warning">You are overweight.</p>
-
+                <div class="alert alert-warning">You are overweight.</div>
             <?php else: ?>
-                <p class="text-danger">You are obese.</p>
-
+                <div class="alert alert-danger">You are obese.</div>
             <?php endif; ?>
         </div>
     <?php endif; ?>
