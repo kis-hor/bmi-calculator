@@ -1,0 +1,26 @@
+#weight{
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    box-sizing: border-box;
+    border: 2px solid #352323;
+    border-radius: 5px;
+}
+
+#height{
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    box-sizing: border-box;
+    border: 2px solid #352323;
+    border-radius: 5px;
+}
+
+.container{
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    
+}
